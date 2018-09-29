@@ -1,5 +1,4 @@
 function sumaMatriz(matrizA, matrizB){
-    let matrizC=[];
     let contMA1=0;
     let contMA2=0;
     for (let i = 0; i < matrizA.length; i++) {
@@ -16,17 +15,25 @@ function sumaMatriz(matrizA, matrizB){
             contMB2++;
         }
     }
+
     if(contMA1==contMB1 && contMB2==contMA2){
+        let matrizC=new Array(matrizA.length);
         for (let i = 0; i < matrizA.length; i++) {
-            for (let j = 0; j < matrizA[i].length; j++) {
-                matrizC.push()
+            matrizC[i]= new Array(contMA1);
+            for (let x = 0; x < contMA1; x++) {
+                for (let y = 0; y < contMB1; y++) {
+                    matrizC[x][y]= matrizA[x][y]+matrizB[x][y];
+                }
             }
         }
+        return matrizC;
     }else{
-        console.log("Las matrices no tienen las mismas dimensiones")
+        console.log("Las matrices no tienen las mismas dimensiones");
     }
+    return
 }
 
 
 let matrizA=[[0,1,3],[5,2,6],[1,2,7]];
 let matrizB=[[0,1,3],[5,2,6],[1,2,7]];
+let matrizPivote = sumaMatriz(matrizA,matrizB);
